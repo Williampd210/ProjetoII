@@ -116,5 +116,11 @@ def sobre():
 def contato():
     return render_template('contato.html')  # Página de contato
 
+@app.route('/cadastro')
+def cadastro_page():  # Novo nome para evitar conflito
+    return render_template('cadastro.html')
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

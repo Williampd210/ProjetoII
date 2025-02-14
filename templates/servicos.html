@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/cabecalho-rodape.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendario.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleContato.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cabecalho-rodape.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='calendario.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleContato.css') }}">
     
     <!-- Fontes e Ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,13 +22,13 @@
     </style>
 
     <!-- Scripts JS -->
-    <script src="{{ url_for('static', filename='js/scriptInício.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/scriptlogincadastro.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/calendario.js') }}"></script>
+    <script src="{{ url_for('static', filename='scriptinício.js') }}"></script>
+    <script src="{{ url_for('static', filename='scriptlogincadastro.js') }}"></script>
+    <script src="{{ url_for('static', filename='calendario.js') }}"></script>
 
     <title>Espaço Silmara Regina</title>
   </head>
-  <body>
+  <body id="fundo">
     <header class="header">
       <div id="logo">
         <img src="static/img/icon.jpg" alt="" width="110" />
@@ -38,7 +38,7 @@
         <i class='bx bx-menu' id="menu-icon"></i>
         <i class='bx bx-x' id="close-icon"></i>
       </label>
-      <nav id="inicio" class="navigation">
+      <nav id="início" class="navigation">
         <ul class="menu">
           <li><a href="{{ url_for('index') }}">Início</a></li>
           <li><a href="{{ url_for('servicos') }}">Serviços</a></li>

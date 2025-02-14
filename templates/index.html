@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/cabecalho-rodape.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendario.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleContato.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cabecalho-rodape.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='calendario.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleContato.css') }}">
     
     <!-- Fontes e Ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,9 +22,9 @@
     </style>
 
     <!-- Scripts JS -->
-    <script src="{{ url_for('static', filename='js/scriptInicio.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/scriptlogincadastro.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/calendario.js') }}"></script>
+    <script src="{{ url_for('static', filename='scriptinício.js') }}"></script>
+    <script src="{{ url_for('static', filename='scriptlogincadastro.js') }}"></script>
+    <script src="{{ url_for('static', filename='calendario.js') }}"></script>
 
     <title>Espaço Silmara Regina</title>
   </head>
@@ -43,7 +43,6 @@
           <li><a href="{{ url_for('login') }}">Login</a></li>
         </ul>
       </nav>
-      
     </header>
     <main>
       <div id="inicio">
@@ -83,6 +82,7 @@
             Aqui, você é o que importa!
           </p>
         </section>
+
       </div>
       <div class="middle">
         <p class="phrase">No Espaço Silmara Regina, você encontra os seguintes serviços:</p>
@@ -104,12 +104,13 @@
               <p class="badge" id="specific-title2">Liderança de Equipes</p>
             </div>
           </div>
-          <div class="read-more-button">
-            <a href="{{ url_for('servicos') }}" id="read-more-link">Saiba mais</a>
-          </div>
+        <div class="read-more-button">
+          <a href="{{ url_for('sobre') }}" id="read-more-link">Saiba mais</a>
+        </div>
       </div>
       <div id="cor"></div>
     </main>
+    <!--
     <footer>
       <div class="footerNav">
         <ul>
@@ -124,5 +125,6 @@
         <p>Copyright &copy;2025; Todos os direitos reservados.</p>
       </div>
     </footer>
+    -->
   </body>
 </html>

@@ -1,0 +1,74 @@
+/* Estilo básico para o layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    width: 80%;
+    height: 80%;
+}
+
+.agendamentos {
+    width: 30%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.linha-divisoria {
+    width: 1px;
+    background-color: #ccc;
+    margin: 0 20px;
+    height: 100%;
+}
+
+.calendario {
+    width: 60%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Estilizando o calendário */
+#calendario-mes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.dia {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dia:hover {
+    background-color: #ccc;
+}
+
+.dia.agendado {
+    background-color: #3d97ff;
+    color: #fff;
+}
