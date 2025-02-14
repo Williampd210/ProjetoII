@@ -1,0 +1,781 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: BebasNeue;
+  src: url(fonts/BebasNeue-Regular.ttf);
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-padding, 150px);
+}
+
+/* header */
+
+#logo {
+  margin-left: 5%;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(255, 255, 255);
+  padding: 0 25px;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.menu li {
+  list-style-type: none;
+}
+
+.menu li a {
+  font-family: "BebasNeue", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  color: #034aa6;
+  text-decoration: none;
+  display: block;
+  padding: 40px 25px;
+  font-size: 25px;
+  line-height: 1;
+  transition: 0.3s;
+}
+
+.menu li a:hover {
+  color: #034aa687;
+  padding: 35px 25px 45px 25px;
+}
+
+/* body */
+
+body {
+  height: 100vh;
+  width: 100%;
+}
+
+/* slider das imagens */
+
+.slider {
+  margin: 0 auto;
+  width: 800px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.slides {
+  width: 400%;
+  height: 400px;
+  display: flex;
+}
+
+.slides input {
+  display: none;
+}
+
+.slide {
+  width: 25%;
+  position: relative;
+  transition: 2s;
+}
+
+.slide img {
+  width: 850px;
+}
+
+.navegacao-manual {
+  position: absolute;
+  width: 800px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-btn {
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+  margin-right: 40px;
+}
+
+.manual-btn:hover {
+  background-color: #000000;
+}
+
+#radio1:checked ~  .first {
+  margin-left: 0;
+}
+#radio2:checked ~  .first {
+  margin-left: -25%;
+}
+#radio3:checked ~  .first {
+  margin-left: -50%;
+}
+
+.navegacao-auto div {
+  border: 2px solid rgb(118, 0, 227);
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.navegacao-auto {
+  position: absolute;
+  width: 800px;
+  margin-top: 430px;
+  display: flex;
+  justify-content: center;
+}
+
+.navegacao-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .navegacao-auto .autobtn1 {
+  background-color: #000000;
+}
+#radio2:checked ~ .navegacao-auto .autobtn2 {
+  background-color: #000000;
+}
+#radio3:checked ~ .navegacao-auto .autobtn3 {
+  background-color: #000000;
+}
+
+/* fim slider das imagens */
+
+.design-início-lugar {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2%;
+}
+
+#inicio {
+  padding-top: 10%;
+  background-color: #8350f2;
+}
+
+.design-início-lugar p {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 3em;
+  font-weight: bolder;
+}
+
+.textoInicio1{
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.textoInicio2 {
+  display: inline-block;
+  margin-left: 50%;
+}
+
+a {
+  font-size: large;
+  text-decoration: none;
+  color: #034aa6;
+}
+
+a:hover {
+  color: #034aa693;
+}
+
+.middle {
+  background: #CB9DF0;
+}
+
+.phrase {
+  padding-top: 50px;
+  padding-left: 50px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.container-card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  align-content: center;
+  padding-bottom: 50px;
+}
+
+.cardimg {
+  width: 100%;
+  height: auto;
+}
+
+.carditem {
+  width: 325px;
+  background-color: #FBFBFB;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px;
+  align-content: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+}
+
+#specific-card {
+  padding-top: 60px;
+}
+
+#specific-img {
+  position: relative;
+  bottom: 18px;
+}
+
+#specific-card2 {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: 300px;
+}
+
+#specific-title {
+  position: relative;
+  top: 15px;
+  left: 5%;
+}
+
+#specific-title2 {
+  position: relative;
+  left: 10%;
+}
+
+#specific-title3 {
+  position: relative;
+  left: 15%;
+}
+
+#specific-title4 {
+  position: relative;
+  left: 1%;
+}
+
+.badge {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding: 16px;
+  font-size: 1.19rem;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.read-more-button {
+  padding-bottom: 50px;
+}
+
+#read-more-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-weight: 600;
+  line-height: normal;
+  min-height: 60px;
+  max-width: 200px;
+  min-width: 0;
+  background-color: #789DBC;
+  border: 0.5px solid black;
+  padding: 16px 24px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#read-more-link:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+
+/* serviços */
+
+#atendimento {
+  border-top: 1px rgba(0, 0, 0, 0.662) solid;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.servicos {
+  display: flex;
+  justify-content: center;
+  background-color: #F0C1E1;
+}
+
+.design-serviços {
+  padding-top: 60px;
+  margin: 5%;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+.design-serviços h2 {
+  margin-top: 20px;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.design-serviços h3 {
+  padding-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 32px;
+  align-items: center;
+  color: black;
+}
+
+div.cards section.card {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #C8A4FB;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  max-height: 300px;
+  height: 250px;
+  width: 250px;
+  margin: 20px;
+  margin-left: 32px;
+  box-shadow: 20px 20px 50px -30px #000000;
+}
+
+div.cards section.card h1 {
+  margin: 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+div.cards section.card span {
+  font-weight: 400;
+  max-width: 240px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  align-items: center;
+  text-align: center;
+}
+
+/* ----------------- */
+
+/* Sobre */
+
+#fundo {
+  background-color: #034aa6;
+}
+
+#fundo-sobre {
+  padding-top: 60px;
+}
+
+.sobre {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.design-sobre {
+  margin: 5%;
+}
+
+.titulo-sobre {
+  margin-top: 20px;
+  padding-bottom: 2%;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.container {
+  display: inline-flex;
+}
+
+.container img {
+  display: flex;
+  border-radius: 200px;
+  margin-right: 2%;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.container p {
+  font-size: 110%;
+  margin-left: 2%;
+  text-align: left;
+  margin-top: 2%;
+}
+
+/* footer */
+
+#fundo-contato {
+  padding-top: 60px;
+  background-color: #034aa6;
+}
+
+
+/**/
+
+#botao-wpp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 3%;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  color: white;
+  font-size: 16px;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-weight: 600;
+  line-height: normal;
+  min-height: 60px;
+  max-width: 300px;
+  min-width: 0;
+  background-color: #000000;
+  padding: 16px 24px;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  text-transform: uppercase;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  touch-action: manipulation;
+}
+
+#botao-wpp:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+#botao-wpp:disabled {
+  pointer-events: none;
+}
+
+#botao-wpp:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+#contato-texto {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: black;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#contato-texto2 {
+  display: flex;
+  min-height: 250px;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.boxs {
+  width: 320px;
+  min-height: 150px;
+  padding: 20px;
+  margin-left: 5em;
+}
+
+.boxs.margem {
+  margin-left: 0;
+}
+
+.boxs h2 {
+  color: white;
+  border-bottom: 1px #c9c9c9 solid;
+  padding-bottom: 8px;
+}
+
+.boxs ul li,
+.boxs ul li a {
+  margin: 10px 0px;
+  list-style-type: none;
+  padding: 0.2em 0em;
+  color: #ddd;
+  font-size: 17px;
+}
+
+.boxs .info:first-child {
+  padding-top: 8px;
+}
+
+.boxs ul li.tiktok {
+  margin-right: 40px;
+}
+
+.bi.bi-tiktok {
+  width: 25px;
+}
+
+.boxs ul li.tiktok:last-child {
+  margin-right: 0;
+}
+
+.boxs ul li.tiktok:hover {
+  -xpedu-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+.boxs ul li a {
+  font-weight: 600;
+}
+
+.footer-link {
+  display: inline-flex;
+  padding-top: 8px;
+}
+
+.bi.bi-instagram {
+  width: 25px;
+  margin-right: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bi.bi-instagram:hover {
+  -xpedu-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+/* Estilos para o Popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 100%;
+  position: relative;
+}
+
+.popup .form {
+  margin-top: 15px;
+}
+
+.popup label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.popup input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.popup button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px;
+  background-color: #8350f2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: #0056b3;
+}
+/* Botão Fechar*/
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.popup-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  width: 48%;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.tab-btn.active {
+  background-color: #8350f2;
+  color: white;
+  padding: 10px;
+}
+
+.open-popup-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.open-popup-btn button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.open-popup-btn button:hover {
+  background-color: #0056b3;
+}
+
+/* media query */
+
+@media screen and (max-width: 992px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* body - media query */
+
+  main {
+    padding-top: 30px
+  }
+  
+  #inicio {
+    padding-top: 20%;
+  }
+
+  #fundo-sobre {
+    background-color: #034aa6;
+  }
+
+  .sobre {
+    padding: 30px;
+  }
+
+  /* Media Query - Página de Serviços */
+  
+  div.cards {
+    flex-direction: column;
+  }
+
+  div.cards section.card {
+    /* margin-left: 0; */
+    margin-bottom: 32px;
+  }
+
+  div.cards section.card:last-child {
+    margin-bottom: 0;
+  }
+
+  .titulo-sobre {
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #034aa6;
+  }
+
+  .container img {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container p {
+    text-align: justify;
+  }
+
+  #contato-texto {
+    text-align: center;
+  }
+  /* MQ Página de Serviços - Fim */
+
+}
+
+@media screen and (max-width: 700px) {
+
+  main {
+    padding-top: 30px
+  }
+  
+  #inicio {
+    padding-top: 30%;
+  }
+
+  .textoInicio2 {
+    margin-left: 50px;
+  }
+}
+
+

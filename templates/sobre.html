@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cabecalho-rodape.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendario.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleContato.css') }}">
+    
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Estilo adicional -->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap");
+    </style>
+
+    <!-- Scripts JS -->
+    <script src="{{ url_for('static', filename='js/scriptInicio.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scriptlogincadastro.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/calendario.js') }}"></script>
+
+    <title>Espaço Silmara Regina</title>
+  </head>
+  <body>
+    <header class="header">
+      <div id="logo">
+        <img src="static/img/icon.jpg" alt="" width="110" />
+      </div>
+      <input type="checkbox" name="" id="check">
+      <label for="check" class="icons">
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <i class='bx bx-x' id="close-icon"></i>
+      </label>
+      <nav id="inicio" class="navigation">
+        <ul class="menu">
+          <li><a href="{{ url_for('index') }}">Início</a></li>
+          <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+          <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+          <li><a href="{{ url_for('contato') }}">Contato</a></li>
+          <li><a href="#login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+        <div id="fundo-sobre">
+            <section class="design-sobre" id="sobre">
+              <div class="sobre">
+                  <h2 class="titulo-sobre">Sobre o Espaço Silmara Regina</h2>
+                  <div class="container">
+                    <img src="static/img/silmara-regina.jpg" alt="" width="300" />
+                    <p>
+                      Silmara Regina é uma profissional itabirana graduada em Ciências
+                      Contábeis, com mais de 30 anos de experiência na área, e em
+                      Gestão Financeira. Além disso, é psicanalista, especialista em
+                      Inteligência Emocional e pós-graduada em TCC (Terapia
+                      Cognitiva-Comportamental).
+                      <br /><br />
+                      No mercado há 3 anos, o Espaço Silmara Regina é uma empresa
+                      localizada no centro de Itabira, e que desempenha atividades
+                      diversas, mas que em todas as áreas possui um objetivo em comum:
+                      fazer com que os clientes possam ter a melhor experiência com o
+                      serviço. A Organização conta com uma profissional qualificada e
+                      com experiência, possibilitando maior eficiência na realização
+                      das demandas.
+                    </p>
+                  </div>
+              </div>
+            </section>
+        </div>
+    </main>
+  </body>
+</html>

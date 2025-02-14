@@ -1,0 +1,439 @@
+
+.hamburger {
+  position: relative;
+  width: 30px;
+  height: 4px;
+  background: #034aa6;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  right: 0;
+  background: #034aa6;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.hamburger::before {
+  top: -10px;
+  width: 30px;
+}
+
+.hamburger::after {
+  top: 10px;
+  width: 30px;
+}
+
+.hamburger,
+.toggle-menu {
+  display: none;
+}
+
+.navigation input:checked ~ .hamburger {
+  background: transparent;
+}
+
+.navigation input:checked ~ .hamburger::before {
+  top: 0;
+  transform: rotate(-45deg);
+  width: 35px;
+}
+
+.navigation input:checked ~ .hamburger::after {
+  top: 0;
+  transform: rotate(45deg);
+  width: 35px;
+}
+
+.navigation input:checked ~ .menu {
+  right: 0;
+  box-shadow: -20px 0 40px rgba(255, 255, 255, 0.354);
+}
+
+/* body */
+
+body {
+  height: 100vh;
+  width: 100%;
+}
+
+#fundo {
+  background-color: #034aa6;
+}
+
+#fundo-sobre {
+  padding-top: 60px;
+}
+
+.sobre {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.design-sobre {
+  margin: 5%;
+}
+
+.titulo-sobre {
+  margin-top: 20px;
+  padding-bottom: 2%;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.container {
+  display: inline-flex;
+}
+
+.container img {
+  display: flex;
+  border-radius: 200px;
+  margin-right: 2%;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.container p {
+  font-size: 110%;
+  margin-left: 2%;
+  text-align: left;
+  margin-top: 2%;
+}
+
+#fundo-contato {
+  padding-top: 60px;
+  background-color: #034aa6;
+}
+
+#botao-wpp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 3%;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  color: white;
+  font-size: 16px;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-weight: 600;
+  line-height: normal;
+  min-height: 60px;
+  max-width: 300px;
+  min-width: 0;
+  background-color: #000000;
+  padding: 16px 24px;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  text-transform: uppercase;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  touch-action: manipulation;
+}
+
+#botao-wpp:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+#botao-wpp:disabled {
+  pointer-events: none;
+}
+
+#botao-wpp:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+#contato-texto {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: black;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#contato-texto2 {
+  display: flex;
+  min-height: 700px;
+  margin-top: 50px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #56777D;
+  color: white;
+  flex-direction: row;
+  padding: 20px;
+}
+
+#mapBox {
+  width: 500px;
+  height: 400px;
+  position: relative;
+}
+
+#mapBox iframe {
+  width: 100%;
+  height: 100%;
+}
+
+#info {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#info li {
+  font-size: 20px;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+}
+
+.boxs.margem {
+  margin-left: 0;
+  text-align: justify;
+  margin-left: 5em;
+  justify-items: left;
+}
+
+#tituloContato {
+  text-transform: uppercase;
+  padding: 20px;
+  border-bottom: 1px #c9c9c9 solid;
+  padding-bottom: 8px;
+  padding-left: 0px;
+  margin-left: 20px;
+}
+
+.boxs {
+  width: 320px;
+  min-height: 150px;
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.boxs ul li,
+.boxs ul li a {
+  margin: 10px 0px;
+  list-style-type: none;
+  color: white;
+  font-size: 17px;
+}
+
+.boxs .info:first-child {
+  padding-top: 8px;
+}
+
+.boxs ul li.tiktok {
+  margin-right: 40px;
+}
+
+.bi.bi-tiktok {
+  width: 25px;
+}
+
+.boxs ul li.tiktok:last-child {
+  margin-right: 0;
+}
+
+.boxs ul li.tiktok:hover {
+  -xpedu-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+  transition: 250ms linear
+}
+
+.boxs ul li a {
+  font-weight: 600;
+}
+
+.footer-link {
+  display: inline-flex;
+  padding-top: 8px;
+}
+
+.bi.bi-instagram {
+  width: 25px;
+  margin-right: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bi.bi-instagram:hover {
+  -xpedu-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+  transition: 250ms linear
+}
+
+/* media query */
+
+@media screen and (max-width: 992px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .header {
+    padding: 10px 40px;
+  }
+
+  /* body - media query */
+  #inicio {
+    padding-top: 20%;
+  }
+
+  #slider {
+    width: 95%;
+    overflow: hidden;
+    display: block;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.352) 0px 8px 24px;
+  }
+
+  div.cards {
+    flex-direction: column;
+  }
+
+  div.cards section.card {
+    /* margin-left: 0; */
+    margin-bottom: 32px;
+  }
+
+  div.cards section.card:last-child {
+    margin-bottom: 0;
+  }
+
+  .titulo-sobre {
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container img {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container p {
+    text-align: justify;
+  }
+
+  #contato-texto {
+    text-align: center;
+  }
+
+  #contato-texto2 {
+    display: flex;
+    min-height: 250px;
+    padding-top: 50px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #info {
+    align-items: center;
+  }
+
+  .boxs {
+    width: 400px;
+    min-height: 150px;
+    padding: 20px;
+    margin-left: 0;
+  }
+
+  .boxs h2 {
+    font-size: 30px;
+  }
+
+  .boxs .info li {
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  .redes-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .boxs ul li.tiktok,
+  .bi.bi-instagram {
+    margin-right: 0;
+  }
+
+  .boxs ul li a {
+    font-size: 20px;
+  }
+
+  .bi.bi-instagram,
+  .bi.bi-tiktok {
+    width: 40px;
+  }
+
+  .bi.bi-instagram:hover,
+  .boxs ul li.tiktok:hover {
+    transform: none;
+  }
+
+  .redes-link li {
+    border-bottom: 1px solid #ddd;
+  }
+  /* slider */
+  /* ---------- */
+}
+
+@media screen and (max-width: 700px) {
+  #inicio {
+    padding-top: 30%;
+  }
+
+  #contato-texto2 {
+    min-height: 400px;
+    margin-top: 50px;
+    padding: 20px;
+  }
+
+  #mapBox {
+    width: 400px;
+    height: 300px;
+  }
+
+  .boxs.margem {
+    align-items: center;
+  }
+  
+  #tituloContato {
+    margin-left: 0px;
+    padding-left: 20px;
+  }
+
+  #info {
+    padding: 15px;
+  }
+  .boxs {
+    align-items: center;
+  }
+
+  .boxs .info li {
+    font-size: 15px;
+    font-weight: 250;
+  }
+}

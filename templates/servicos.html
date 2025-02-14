@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cabecalho-rodape.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendario.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleContato.css') }}">
+    
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Estilo adicional -->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap");
+    </style>
+
+    <!-- Scripts JS -->
+    <script src="{{ url_for('static', filename='js/scriptInício.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scriptlogincadastro.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/calendario.js') }}"></script>
+
+    <title>Espaço Silmara Regina</title>
+  </head>
+  <body>
+    <header class="header">
+      <div id="logo">
+        <img src="static/img/icon.jpg" alt="" width="110" />
+      </div>
+      <input type="checkbox" name="" id="check">
+      <label for="check" class="icons">
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <i class='bx bx-x' id="close-icon"></i>
+      </label>
+      <nav id="inicio" class="navigation">
+        <ul class="menu">
+          <li><a href="{{ url_for('index') }}">Início</a></li>
+          <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+          <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+          <li><a href="{{ url_for('contato') }}">Contato</a></li>
+          <li><a href="#login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+              <div class="servicos">
+            <div class="design-serviços">
+              <!-- Serviços -->
+              <h2 id="contabil">
+                No Espaço Silmara Regina, oferecemos serviços na área contábil e
+                financeira:
+              </h2>
+              <div class="cards">
+                <section class="card">
+                  <h1>Consultoria e mentoria</h1>
+                  <span
+                    >Saiba por uma profissional com experiência como manter a
+                    contabilidade em dia, com atendimento especializado para a sua
+                    situação!</span
+                  >
+                </section>
+                <section class="card">
+                  <h1>Gestão financeira na área contábil</h1>
+                  <span>Melhore a saúde financeira da sua empresa!</span>
+                </section>
+              </div>
+              <h2 id="saude-mental">Na área da saúde mental:</h2>
+              <div class="cards">
+                <section class="card">
+                  <h1>Atendimento psicanalítico</h1>
+                  <span
+                    >Cuide de sua saúde mental. Ela reflete diretamente no seu
+                    estado emocional e físico!</span
+                  >
+                </section>
+                <section class="card">
+                  <h1>Análise comportamental</h1>
+                  <span
+                    >Descubra seu perfil, alcance melhor produtividade e aprimore de
+                    maneira eficiente sua comunicação com as pessoas ao seu
+                    redor!</span
+                  >
+                </section>
+                <section class="card column1">
+                  <h1>Inteligência emocional</h1>
+                  <span
+                    >O autoconhecimento é essencial para que você saiba definir com
+                    segurança tudo aquilo que está sentindo e repassando para quem
+                    está ao seu lado.</span
+                  >
+                </section>
+                <section class="card column2">
+                  <h1>TCC (Terapia Cognitiva Comportamental)</h1>
+                  <span
+                    >Buscando entender a sua realidade no presente para poder
+                    compreender o porquê de seus pensamentos, sentimentos e
+                    atitudes!!</span
+                  >
+                </section>
+              </div>
+              <h3>
+                Assista a playlist
+                <a
+                  href="https://www.youtube.com/watch?v=LU4cIaoe9-U&list=PLJIiDTnwQ4aDlm2INgISluU2cJSV7-QXU>"
+                  >"Série: Comportamentos"</a
+                >
+              </h3>
+              <h2 id="treinamentos">
+                Também oferecemos treinamentos para empresas e colaboradores:
+              </h2>
+              <div class="cards">
+                <section class="card">
+                  <h1>Desenvolvimento humano e profissional</h1>
+                  <span
+                    >Aprenda a reconhecer e desenvolver suas competências e
+                    habilidades para ser o diferencial no mercado de trabalho!</span
+                  >
+                </section>
+                <section class="card">
+                  <h1>Técnicas de vendas</h1>
+                  <span
+                    >Faça a diferença no seu empreendimento, aumente suas
+                    vendas!</span
+                  >
+                </section>
+                <section class="card lider">
+                  <h1>Liderança de equipes</h1>
+                  <span
+                    >Aprenda a desenvolver sua habilidade de liderança e aumente a
+                    eficiência dos processos na área profissional!</span
+                  >
+                </section>
+              </div>
+              <h3>
+                Assista a playlist
+                <a
+                  href="https://www.youtube.com/watch?v=UBRtuGMP5iE&list=PLJIiDTnwQ4aBwws2lLxgEaeyQ2OC6zKiY"
+                  >"Momento empresas e colaboradores"</a
+                >
+              </h3>
+              <section id="atendimento">
+                <h2 id="contato-texto">
+                  O Espaço Silmara Regina é a melhor escolha para quem procura um
+                  atendimento acessível e de qualidade! Consulte a nossa gama de
+                  atividades e marque já um atendimento!
+                </h2>
+                <div class="botao-contato">
+                  <a
+                    href="javascript:void(0);" onclick="openPopup()"
+                    id="botao-wpp"
+                    >Marque um atendimento</a
+                  >
+                </div>
+              </section>
+            </div>
+        </div>
+    </main>
+  </body>
+</html>

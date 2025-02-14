@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  @font-face {
+    font-family: BebasNeue;
+    src: url(fonts/BebasNeue-Regular.ttf);
+  }
+  
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--scroll-padding, 150px);
+  }
+
+/* navbar */
+
+#logo {
+    margin-left: 5%;
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    padding: 0 25px;
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  .header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    z-index: -1;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1;
+    transition: 0.5s;
+  }
+  
+  .menu li {
+    list-style-type: none;
+  }
+  
+  .menu li a {
+    font-family: "BebasNeue", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    color: #034aa6;
+    text-decoration: none;
+    display: block;
+    padding: 40px 25px;
+    font-size: 25px;
+    line-height: 1;
+    transition: 0.3s;
+  }
+  
+  .menu li a:hover {
+    color: #034aa687;
+    padding: 35px 25px 45px 25px;
+  }
+
+  #check {
+    display: none;
+  }
+
+  .icons {
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: #034aa6;
+    cursor: pointer;
+    display: none;
+  }
+  
+/* navbar fim */
+
+/* footer */
+
+footer {
+    background-color: #EDE8DC;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .footerNav {
+    margin: 30px 0px;
+  }
+  
+  .footerNav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    font-family: 'Poppins';
+  }
+  
+  .footerNav ul li a {
+    text-transform: uppercase;
+    color: #000000;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+    position: relative;
+  }
+  
+  .footerNav ul li a::after{
+    content: '';
+    width: 0px;
+    height: 5px;
+    background: #7a53b0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: .5s;
+  }
+  
+  .footerNav ul li:hover a::after {
+    width: 50%;
+    transform: translateX(100%);
+  }
+  
+  
+  .footerBottom {
+    font-family: 'Poppins';
+    position: relative;
+    display:  flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+/* footer fim */
+
+/* popup de cadastro e login */
+
+/* Estilos para o Popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 100%;
+  position: relative;
+}
+
+.popup .form {
+  margin-top: 15px;
+}
+
+.popup label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.popup input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.popup button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px;
+  background-color: #8350f2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: #0056b3;
+}
+/* Botão Fechar*/
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.popup-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  width: 48%;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.tab-btn.active {
+  background-color: #8350f2;
+  color: white;
+  padding: 10px;
+}
+
+.open-popup-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.open-popup-btn button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.open-popup-btn button:hover {
+  background-color: #0056b3;
+}
+
+/* popup de cadatro e login - fim */
+
+/* media query - navbar */
+@media screen and (max-width: 992px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .header {
+    padding: 1rem 5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .icons {
+    display: inline-flex;
+  }
+
+  #check:checked~.icons #menu-icon {
+    display: none;
+  }
+
+  .icons #close-icon {
+    display: none;
+  }
+
+  #check:checked~.icons #close-icon {
+    display: block;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    text-align: center;
+    justify-content: center;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    overflow: hidden;
+    transition: .3s ease;
+  }
+
+  #check:checked~.navigation{
+    height: 18rem;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .menu li a {
+    padding: 0;
+    font-size: 1.8rem;
+    margin: 2rem 0;
+  }
+
+  .menu li a:hover {
+    padding: 0;
+  }
+  
+}
+
+/* Media Query - Footer */
+
+@media screen and (max-width: 700px) {
+  .footerNav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footerNav li {
+    margin: 10px;
+  }
+}
+
+/* Media Query fim*/
