@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='cabecalho-rodape.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='calendario.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styleContato.css') }}">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/cabecalho-rodape.css"
+    <link rel="stylesheet" href="/static/css/calendario.css">
+    <link rel="stylesheet" href="/static/css/styleContato.css">
     
     <!-- Fontes e Ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,27 +22,28 @@
     </style>
 
     <!-- Scripts JS -->
-    <script src="{{ url_for('static', filename='scriptinício.js') }}"></script>
-    <script src="{{ url_for('static', filename='scriptlogincadastro.js') }}"></script>
-    <script src="{{ url_for('static', filename='calendario.js') }}"></script>
+    <script src="/static/js/scriptinicio.js"></script>
+    <script src="{{ url_for('static', filename='js/scriptlogincadastro.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/calendario.js') }}"></script>
 
     <title>Espaço Silmara Regina</title>
   </head>
   <body>
     <header class="header">
       <div id="logo">
-        <img src="static/img/icon.jpg" alt="" width="110" />
+        <img src="/static/img/icon.jpg" alt="" width="110" />
       </div>
 
       <nav id="início" class="navigation">
         <ul class="menu">
-          <li><a href="{{ url_for('index') }}">Início</a></li>
-          <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+          <li><a href="/templates/index.html">Início</a></li>
+          <li><a href="/templates/servicos.html">Serviços</a></li>
           <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
           <li><a href="{{ url_for('contato') }}">Contato</a></li>
-          <li><a href="{{ url_for('login') }}">Login</a></li>
+          <li><a href="/templates/login.html">Login</a></li>
         </ul>
       </nav>
+      
     </header>
     <main>
       <div id="inicio">
@@ -57,13 +58,13 @@
             <input type="radio" name="radio-btn" id="radio2">
             <input type="radio" name="radio-btn" id="radio3">
             <div class="slide first">
-              <img src="static/img//1.png" alt="">
+              <img src="/static/img/1.png" alt="">
             </div>
             <div class="slide">
-              <img src="static/img//2.png" alt="">
+              <img src="/static/img/2.png" alt="">
             </div>
             <div class="slide">
-              <img src="static/img//3.png" alt="">
+              <img src="/static/img/3.png" alt="">
             </div>
             <div class="navegacao-auto">
               <div class="autobtn1"></div>
@@ -83,34 +84,35 @@
           </p>
         </section>
 
+        <script src="/templates/scriptinicio.js"></script>
+
       </div>
       <div class="middle">
         <p class="phrase">No Espaço Silmara Regina, você encontra os seguintes serviços:</p>
           <div class="container-card">
             <div class="carditem">
-              <img src="static/img//consultoria png.png" alt="Imagem Card" class="cardimg" id="specific-card2">
+              <img src="/static/img/consultoria png.png" alt="Imagem Card" class="cardimg" id="specific-card2">
               <p class="badge" id="specific-title">Consultoria e Mentoria</p>
             </div>
             <div class="carditem">
-              <img src="static/img//gestao png.png" alt="Imagem Card" class="cardimg">
+              <img src="/static/img/gestao png.png" alt="Imagem Card" class="cardimg">
               <p class="badge" id="specific-title3">Gestão Financeira</p>
             </div>
             <div class="carditem">
-              <img src="static/img//psicoterapia.png" alt="Imagem Card" class="cardimg">
+              <img src="/static/img/psicoterapia.png" alt="Imagem Card" class="cardimg">
                 <p class="badge" id="specific-title4">Atendimento Psicanalítico</p>
             </div>
             <div class="carditem" id="specific-card">
-              <img src="static/img//lideranca de equipes.png" alt="Imagem Card" class="cardimg" id="specific-img">
+              <img src="/static/img/lideranca de equipes.png" alt="Imagem Card" class="cardimg" id="specific-img">
               <p class="badge" id="specific-title2">Liderança de Equipes</p>
             </div>
           </div>
-        <div class="read-more-button">
-          <a href="{{ url_for('sobre') }}" id="read-more-link">Saiba mais</a>
-        </div>
+          <div class="read-more-button">
+            <a href="{{ url_for('servicos') }}" id="read-more-link">Saiba mais</a>
+          </div>
       </div>
       <div id="cor"></div>
     </main>
-    <!--
     <footer>
       <div class="footerNav">
         <ul>
@@ -125,6 +127,5 @@
         <p>Copyright &copy;2025; Todos os direitos reservados.</p>
       </div>
     </footer>
-    -->
   </body>
 </html>
