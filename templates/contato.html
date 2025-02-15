@@ -30,26 +30,39 @@
   </head>
   <body id="fundo-contato">
     <header class="header">
-        <div id="logo">
-          <img src="static/img/icon.jpg" alt="Logo Espaço Silmara Regina" width="110" />
-        </div>
-
-        <input type="checkbox" name="" id="check">
-        <label for="check" class="icons">
+      <div id="logo">
+          <img src="{{ url_for('static', filename='img/icon.jpg') }}" alt="Logo Espaço Silmara Regina" width="110" />
+      </div>
+  
+      <input type="checkbox" name="" id="check">
+      <label for="check" class="icons">
           <i class='bx bx-menu' id="menu-icon"></i>
           <i class='bx bx-x' id="close-icon"></i>
-        </label>
-        
-        <nav id="início" class="navigation">
+      </label>
+      
+      <nav id="início" class="navigation">
           <ul class="menu">
-            <li><a href="{{ url_for('index') }}">Início</a></li>
-            <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
-            <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
-            <li><a href="{{ url_for('contato') }}">Contato</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
+              <li><a href="{{ url_for('index') }}">Início</a></li>
+              <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+              <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+              <li><a href="{{ url_for('contato') }}">Contato</a></li>
+  
+              {% if user_logged_in %}
+                  <li class="submenu">
+                      <a href="#" class="user-menu">
+                          <i class='bx bx-user-circle'></i>
+                      </a>
+                      <ul class="submenu-content">
+                          <li><a href="{{ url_for('perfil') }}">Perfil</a></li>
+                          <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                      </ul>
+                  </li>
+              {% else %}
+                  <li><a href="{{ url_for('login') }}">Login</a></li>
+              {% endif %}
           </ul>
-        </nav>
-    </header>
+      </nav>
+  </header>
     <main>
         <section>
             <div id="contato-texto2">

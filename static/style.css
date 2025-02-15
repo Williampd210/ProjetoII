@@ -143,6 +143,86 @@ body {
   margin-left: -50%;
 }
 
+.submenu {
+  position: relative;
+  display: inline-block;
+}
+
+.submenu-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  min-width: 150px;
+  z-index: 10;
+}
+
+.submenu:hover .submenu-content {
+  display: block;
+}
+
+.submenu-content li {
+  list-style: none;
+  padding: 10px;
+  text-align: left;
+}
+
+.submenu-content li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px 10px;
+}
+
+.submenu-content li a:hover {
+  background-color: #f2f2f2;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.bx-user-circle {
+  font-size: 22px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .navegacao-auto div {
   border: 2px solid rgb(118, 0, 227);
   padding: 5px;
@@ -182,7 +262,7 @@ body {
 }
 
 #inicio {
-  padding-top: 10%;
+  padding-top: 900px;
   background-color: #8350f2;
 }
 
@@ -348,6 +428,7 @@ a:hover {
   display: flex;
   justify-content: center;
   background-color: #F0C1E1;
+  padding-top:1115px;
 }
 
 .design-serviços {
@@ -462,6 +543,13 @@ div.cards section.card span {
 }
 
 
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #6b21a8;
+  color: white;
+  margin-top: auto;
+}
 /**/
 
 #botao-wpp {
@@ -775,6 +863,71 @@ div.cards section.card span {
 
   .textoInicio2 {
     margin-left: 50px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 120px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Perfil do usuário */
+.perfil {
+  text-align: center;
+  padding: 20px;
+  background: #007BFF;
+  color: white;
+  border-radius: 10px;
+}
+
+.perfil h2 {
+  font-size: 24px;
+}
+
+.perfil p {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+/* Seções de agendamentos */
+.section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e9f5ff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section h3 {
+  color: #007BFF;
+  margin-bottom: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+      width: 95%;
+      margin: 100px auto;
+  }
+
+  .menu {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .menu li {
+      margin: 5px 0;
   }
 }
 

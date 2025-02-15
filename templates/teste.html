@@ -190,22 +190,10 @@ def perfil():
             flash("Usuário não encontrado.", "error")
             return redirect(url_for('logout'))
 
-        # Consultar os próximos agendamentos (futuros) com nome do serviço
-        proximos_agendamentos = db.session.query(Agendamento, Servico.nome_servico).join(Servico).filter(
-            Agendamento.id_usuario == session['user_id'],
-            Agendamento.data >= datetime.today().date()
-        ).order_by(Agendamento.data, Agendamento.hora).all()
-
-        # Consultar o histórico de agendamentos (passados) com nome do serviço
-        historico_agendamentos = db.session.query(Agendamento, Servico.nome_servico).join(Servico).filter(
-            Agendamento.id_usuario == session['user_id'],
-            Agendamento.data < datetime.today().date()
-        ).order_by(Agendamento.data.desc(), Agendamento.hora.desc()).all()
-
     finally:
         connection.close()
-
-    return render_template('tela_perfil.html', usuario=usuario, proximos_agendamentos=proximos_agendamentos, historico_agendamentos=historico_agendamentos)
+    
+    return render_template('tela_perfil.html', usuario=usuario)
 
 # Página de cadastro
 @app.route('/cadastro', methods=['GET', 'POST'])
@@ -255,3 +243,182 @@ def contato():
 # Rodar a aplicação
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='cabecalho-rodape.css') }}">
+        <title>Painel do Usuário</title>
+        <style>
+            /* Reset básico */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+            }
+    
+            /* --------- ESTILO DO MENU (SEU MENU ORIGINAL) -------- */
+            #logo {
+                margin-left: 5%;
+            }
+    
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: rgb(255, 255, 255);
+                padding: 0 25px;
+                transition: 0.3s;
+                z-index: 1000;
+            }
+    
+            .navigation {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+            .menu {
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                align-items: center;
+                z-index: 1;
+                transition: 0.5s;
+                padding-left: 10px;
+            }
+    
+            .menu li {
+                list-style-type: none;
+            }
+    
+            .menu li a {
+                font-family: "BebasNeue", system-ui, -apple-system, BlinkMacSystemFont,
+                    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                    sans-serif;
+                color: #034aa6;
+                text-decoration: none;
+                display: block;
+                padding: 40px 25px;
+                font-size: 25px;
+                line-height: 1;
+                transition: 0.3s;
+            }
+    
+            .menu li a:hover {
+                color: #034aa687;
+                padding: 35px 25px 45px 25px;
+            }
+            /* ------------------------------------------------------ */
+    
+            /* Layout principal */
+            .container {
+                width: 90%;
+                max-width: 900px;
+                margin: 120px auto;
+                background: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+    
+            /* Perfil do usuário */
+            .perfil {
+                text-align: center;
+                padding: 20px;
+                background: #007BFF;
+                color: white;
+                border-radius: 10px;
+            }
+    
+            .perfil h2 {
+                font-size: 24px;
+            }
+    
+            .perfil p {
+                font-size: 18px;
+                margin-top: 5px;
+            }
+    
+            /* Seções de agendamentos */
+            .section {
+                margin-top: 20px;
+                padding: 15px;
+                background: #e9f5ff;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+    
+            .section h3 {
+                color: #007BFF;
+                margin-bottom: 10px;
+            }
+    
+            /* Responsividade */
+            @media (max-width: 768px) {
+                .container {
+                    width: 95%;
+                    margin: 100px auto;
+                }
+    
+                .menu {
+                    flex-direction: column;
+                    align-items: center;
+                }
+    
+                .menu li {
+                    margin: 5px 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div id="logo">
+                <img src="{{ url_for('static', filename='img/icon.jpg') }}" alt="Logo" width="100">
+            </div>
+            <nav class="navigation">
+                <ul class="menu">
+                    <li><a href="{{ url_for('index') }}">Início</a></li>
+                    <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+                    <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                    <li><a href="{{ url_for('contato') }}">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <main>
+            <div class="container">
+                <!-- Informações do usuário -->
+                <div class="perfil">
+                    <h2>{{ usuario.nome }}</h2>
+                    <p>Email: {{ usuario.email }}</p>
+                </div>
+    
+                <!-- Seção de Agendamentos -->
+                <div class="section">
+                    <h3>Próximos Agendamentos</h3>
+                    <p>Lista de atendimentos futuros...</p>
+                </div>
+    
+                <div class="section">
+                    <h3>Histórico de Atendimentos</h3>
+                    <p>Registros de atendimentos passados...</p>
+                </div>
+            </div>
+        </main>
+    </body>
+    </html>

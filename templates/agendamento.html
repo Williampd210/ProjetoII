@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Espaço Silmara Regina</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cabecalho-rodape.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <style>
+        /* Estilos mantidos conforme a versão anterior */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4eaff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .banner {
+            background-color: #8b5cf6;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h2 {
+            color: #6b21a8;
+            font-size: 28px;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        h2 span {
+            display: block;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+        input, select, textarea, button {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #6b21a8;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #4c1d95;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #6b21a8;
+            color: white;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div id="logo">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='img/icon.jpg') }}" alt="Logo do Espaço Silmara Regina" width="110">
+            </a>
+        </div>
+        <nav class="navigation">
+            <ul class="menu">
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                <li><a href="{{ url_for('contato') }}">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">AQUI, VOCÊ É O QUE IMPORTA!</div>
+
+    <main class="main-content">
+        <div class="container">
+            <h2>
+                <span>Agendamento</span>
+                <span>de Serviço</span>
+            </h2>
+            <form action="{{ url_for('agendamento') }}" method="POST">
+                <label for="id_servico">Serviço:</label>
+                <select name="id_servico" id="id_servico" required>
+                    <option value="">Selecione um serviço</option>
+                    {% for servico in servicos %}
+                    <option value="{{ servico.id_servico }}">{{ servico.nome_servico }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="formato">Formato:</label>
+                <select name="formato" id="formato" required>
+                    <option value="presencial">Presencial</option>
+                    <option value="online">Online</option>
+                </select>
+
+                <!-- Campo para selecionar data -->
+                <label for="data">Data:</label>
+                <input type="text" id="data" name="data" required>
+
+                <!-- Campo para selecionar horário (inicialmente oculto) -->
+                <div id="hora-container" style="display: none;">
+                    <label for="hora">Hora:</label>
+                    <select name="hora" id="hora" required>
+                        <option value="">Selecione um horário</option>
+                    </select>
+                </div>
+
+                <label for="observacoes">Observações:</label>
+                <textarea id="observacoes" name="observacoes" rows="4" placeholder="Digite alguma observação..."></textarea>
+
+                <button type="submit">Agendar</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+    <script>
+        // Configuração do flatpickr para data
+        flatpickr("#data", {
+            minDate: "today",
+            dateFormat: "Y-m-d",  // Formato da data: yyyy-mm-dd (correspondente ao backend)
+            locale: "pt",
+            onChange: function(selectedDates, dateStr, instance) {
+                // Quando a data for escolhida, mostrar o campo de hora
+                document.getElementById("hora-container").style.display = "block";
+    
+                // A data escolhida no formato yyyy-mm-dd (para corresponder ao formato do backend)
+                const dataEscolhida = dateStr;
+                const idServico = document.getElementById('id_servico').value; // Certifique-se de que esse campo existe
+    
+                // Fazer a requisição para buscar os horários disponíveis
+                fetch(`/horarios_disponiveis?data=${dataEscolhida}&id_servico=${idServico}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        let horaSelect = document.getElementById('hora');
+                        horaSelect.innerHTML = "<option value=''>Selecione um horário</option>"; // Limpa os horários anteriores
+    
+                        // Preenche as opções de horários disponíveis
+                        if (data.disponiveis.length > 0) {
+                            data.disponiveis.forEach(function(hora) {
+                                let option = document.createElement('option');
+                                option.value = hora;
+                                option.textContent = hora;
+                                horaSelect.appendChild(option);
+                            });
+                        } else {
+                            // Caso não haja horários disponíveis
+                            let option = document.createElement('option');
+                            option.value = "";
+                            option.textContent = "Nenhum horário disponível";
+                            horaSelect.appendChild(option);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Erro ao carregar os horários:", error);
+                    });
+            }
+        });
+    </script>
+    
+    <footer>
+        <p>&copy; 2025 Espaço Silmara Regina - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

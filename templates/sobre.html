@@ -20,37 +20,42 @@
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap");
     </style>
-
     <title>Espaço Silmara Regina</title>
   </head>
   <body id="fundo">
     <header class="header">
-        <div id="logo">
-          <img src="imgs/icon.jpg" alt="" width="110" />
-        </div>
-
-        <input type="checkbox" name="" id="check">
-        <label for="check" class="icons">
-          <i class='bx bx-menu' id="menu-icon"></i>
-          <i class='bx bx-x' id="close-icon"></i>
-        </label>
-
-        <nav id="início" class="navigation">
-          <ul class="menu">
-            <li><a href="{{ url_for('index') }}">Início</a></li>
-            <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
-            <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
-            <li><a href="{{ url_for('contato') }}">Contato</a></li>
+      <div id="logo">
+        <img src="static/img/icon.jpg" alt="" width="110" />
+      </div>
+      <nav id="início" class="navigation">
+        <ul class="menu">
+          <li><a href="{{ url_for('index') }}">Início</a></li>
+          <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+          <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+          <li><a href="{{ url_for('contato') }}">Contato</a></li>
+    
+          {% if user_logged_in %}
+            <li class="dropdown">
+              <a href="#" class="dropbtn">
+                <i class="bx bx-user-circle" style="font-size: 24px;"></i>
+              </a>
+              <div class="dropdown-content">
+                <a href="{{ url_for('perfil') }}">Perfil</a>
+                <a href="{{ url_for('logout') }}">Sair</a>
+              </div>
+            </li>
+          {% else %}
             <li><a href="{{ url_for('login') }}">Login</a></li>
-          </ul>
-        </nav>
-      </header>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
     <main>
         <div id="fundo-sobre">
             <section class="design-sobre" id="sobre">
               <div class="sobre">
                   <h2 class="titulo-sobre">Sobre o Espaço Silmara Regina</h2>
-                  <div class="container">
+                  <div>
                     <img src="static/img/silmara-regina.jpg" alt="" width="300" />
                     <p>
                       Silmara Regina é uma profissional itabirana graduada em Ciências
