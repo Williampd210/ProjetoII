@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: BebasNeue;
-  src: url(fonts/BebasNeue-Regular.ttf);
+  src: url(/static/fonts/BebasNeue-Regular.ttf);
 }
 
 html {
@@ -348,6 +348,7 @@ a:hover {
   display: flex;
   justify-content: center;
   background-color: #F0C1E1;
+  padding-top: 1115px;
 }
 
 .design-serviços {

@@ -6,7 +6,7 @@
   
   @font-face {
     font-family: BebasNeue;
-    src: url(fonts/BebasNeue-Regular.ttf);
+    src: url(/static/fonts/BebasNeue-Regular.ttf);
   }
   
   html {
